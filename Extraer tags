@@ -1,0 +1,14 @@
+import urllib.request
+from bs4 import BeautifulSoup
+
+html = urllib.request.urlopen('https://openwebinars.net/')
+soup = BeautifulSoup(html, "lxml")
+
+tags = soup('a')
+
+for tag in tags:
+    print('TAG: ', tag)
+    print('URL: ' ,tag.get('href'))
+    print('CONTENIDO: ', tag.contents)
+    print('ATRIBUTO: ', tag.attrs)
+    print('\n')
